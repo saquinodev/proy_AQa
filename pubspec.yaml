@@ -8,14 +8,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^2.2.2  # Adding this line
+  shared_preferences: ^2.2.2
   provider: ^6.0.5
-  http: any  # I see you're already using http
-  firebase_messaging: ^14.1.0
-  flutter_local_notifications: ^9.7.0
-  geolocator: ^9.0.2
+  http: any
+  firebase_messaging: ^15.2.4
+  flutter_local_notifications: ^18.0.1
+  flutter_local_notifications_platform_interface: ^8.0.0
+  geolocator: ^13.0.2
   qr_flutter: ^4.1.0
   url_launcher: ^6.1.5
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -23,3 +25,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+dependency_overrides:
+  firebase_messaging_web: ^3.5.18
