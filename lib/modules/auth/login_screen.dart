@@ -25,8 +25,12 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() => _isLoading = false);
 
       if (response['success']) {
+        // Imprimir el tipo y el valor de session_id
+        print("Tipo de session_id: ${response['data']['session_id'].runtimeType}");
+        print("Valor de session_id: ${response['data']['session_id']}");
+
         await SessionManager.saveSession(
-          response['data']['session_id'],
+          int.parse(response['data']['session_id']),  // Convertir String a int
           response['data']['usuario'],
           response['data']['tipo'],
         );

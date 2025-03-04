@@ -6,21 +6,18 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     await tester.pumpWidget(MyApp());
 
+    // Esperar a que se complete la navegación a HomeScreen
     await tester.pump();
-
-    // 🔍 DEBUG: Listar todos los textos que se cargan
-    final allTextWidgets = find.byType(Text);
-    for (var text in allTextWidgets.evaluate()) {
-      print((text.widget as Text).data);
-    }
 
     // Verificar que el contador comienza en 0.
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
 
+    // Tocar el ícono de incremento y esperar a que se complete la animación
     await tester.tap(find.byIcon(Icons.add));
     await tester.pump();
 
+    // Verificar que el contador se ha incrementado a 1.
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });

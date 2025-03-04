@@ -25,6 +25,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - .env
 
 dependency_overrides:
   firebase_messaging_web: ^3.5.18
